@@ -24,8 +24,8 @@ ILogger SetupLogging(string logFile)
     var config = new NLog.Config.LoggingConfiguration();
 
     // Targets where to log to: File and Console
-    var logfile = new NLog.Targets.FileTarget("logfile") { FileName = "file.txt" }; 
-    config.AddRule(LogLevel.Debug, LogLevel.Error, logfile);
+    var logTarget = new NLog.Targets.FileTarget("logfile") { FileName = logFile }; 
+    config.AddRule(LogLevel.Debug, LogLevel.Error, logTarget);
 
     // Apply config           
     NLog.LogManager.Configuration = config;
